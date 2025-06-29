@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: enftsatny-python-gitops
+  description: This is GitOps manifest for enftsatny-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=enftsatny-python
+    backstage.io/kubernetes-id: enftsatny-python 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: enftsatny-python
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:enftsatny-python

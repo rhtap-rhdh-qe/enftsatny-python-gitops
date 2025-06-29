@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: enftsatny-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: enftsatny-python 
+  name: enftsatny-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: enftsatny-python
+    weight: 100 
